@@ -3,32 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+    <title>Tic-Tac-Toe</title>
   </head>
+
   <body>
-    <div><h1>Tic-Tac-Toe</h1></div>
-    <div class="board">
-      <table>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="header">
+      <h1>Tic-Tac-Toe</h1>
     </div>
-    <div class="btns"><button>New Game</button></div>
+
+    <div class="middle-body">
+      <div class="board-wrap">
+        <table class="board">
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="controls-wrap">
+        <div class="controls">
+          <button class="btn">New Game</button>
+          <button class="btn">Restart</button>
+        </div>
+
+        <p class="copyright">© 2021 Prasha Goyal</p>
+      </div>
+    </div>
   </body>
 </html>
