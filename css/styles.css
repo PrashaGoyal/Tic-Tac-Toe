@@ -1,0 +1,33 @@
+body {
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+  margin: auto;
+}
+
+td {
+  padding: 80px;
+}
+
+tbody td:nth-child(1) {
+  border-right: 5px solid black;
+}
+
+tbody td:nth-child(2) {
+  border-right: 5px solid black;
+}
+
+tbody tr:nth-child(1) {
+  border-bottom: 5px solid black;
+}
+
+tbody tr:nth-child(2) {
+  border-bottom: 5px solid black;
+}
+
+.board {
+  margin: 50px auto;
+}
