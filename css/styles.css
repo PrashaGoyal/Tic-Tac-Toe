@@ -1,27 +1,9 @@
-/*****************************TAG ELEMENTS*****************************/
-
-html {
-  height: 100%;
-}
-
-body {
-  background-color: #e8e8e8;
-  height: 100%;
-  margin: 0;
-  text-align: center;
-}
-
-h1 {
-  color: #ee2e2e;
-  font-family: "Rock Salt", cursive;
-  font-size: 3rem;
-  margin: 0;
-}
+/* Drawing Table */
 
 table {
   border-collapse: collapse;
   border: none;
-  margin: auto;
+  margin: 5% auto;
 }
 
 td {
@@ -44,69 +26,77 @@ tbody tr:nth-child(2) {
   border-bottom: 0.3rem solid #222831;
 }
 
-/*****************************CLASS ELEMENTS*****************************/
+/* Element Tags */
+body {
+  font-family: "Nanum Pen Script";
+  font-size: 1rem;
+  text-align: center;
+  background-image: url("../images/doodle-bg.jpg");
+  background-size: cover;
+}
+
+/* Containers */
+.container-fluid {
+  padding: 0;
+  margin: 2%;
+  width: 96%;
+}
+
+/* Grid Specifications */
+.row {
+  margin: 0;
+}
+
+.cols {
+  padding: 0;
+}
+
+/* Header Section */
+.header-margin {
+  background-color: #e8e8e8;
+}
 
 .header {
   background-color: #bbcccc;
-  position: fixed;
-  right: 0;
-  width: 40%;
-  z-index: 2;
-}
-
-.middle-body {
+  color: #ee2e2e;
+  font-family: "Rock Salt", cursive;
+  font-size: 1rem;
   height: 100%;
-  width: 100%;
-  position: relative;
+  padding: 2.5% 2%;
 }
 
+/* Board Section */
 .board-wrap {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  width: 60%;
-  height: 100%;
+  background-color: #e8e8e8;
 }
 
-.board {
-  margin: 12% auto;
-}
-
-.controls-wrap {
+/* Controls Section */
+.control-wrap {
   background-color: #222831;
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  width: 40%;
-  height: 100%;
 }
 
 .controls {
+  height: 90%;
+}
+
+.btn-success {
+  width: 40%;
+  font-size: 1.5rem;
   position: relative;
   top: 50%;
 }
 
-.btn {
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  border: 1px solid #0baa2a;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #0dbd30;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-  margin: auto 20px;
-}
-
-.btn:hover {
-  background: #49ca63;
-  text-decoration: none;
-}
-
 .copyright {
-  color: white;
+  color: #fff;
+  font-family: "Montserrat";
+  font-size: 0.75rem;
   position: relative;
-  top: 85%;
+  top: 4%;
+}
+
+/* Media Queries */
+@media (max-width: 767px) {
+  .controls {
+    height: 130px;
+  }
 }
