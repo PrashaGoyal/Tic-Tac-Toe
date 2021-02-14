@@ -120,7 +120,10 @@ function aiTurn() {
   var availSpots = emptySpots(board);
 
   //if there's no available spot it means the human did not win in its previous turn and hence it's a tie
-  if (availSpots.length === 0) alert("Tie");
+  if (availSpots.length === 0) {
+    alert("Tie");
+    endGame = true;
+  }
   //if there is an available spot then AI makes its next move
   else {
     move = minimax(board, aiPlayer);
