@@ -118,6 +118,7 @@ for (var i = 0; i < 9; i++) {
 function aiTurn() {
   //available spots for AI's turn
   var availSpots = emptySpots(board);
+
   //if there's no available spot it means the human did not win in its previous turn and hence it's a tie
   if (availSpots.length === 0) alert("Tie");
   //if there is an available spot then AI makes its next move
