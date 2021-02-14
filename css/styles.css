@@ -1,5 +1,4 @@
 /* Drawing Table */
-
 table {
   border-collapse: collapse;
   border: none;
@@ -7,7 +6,8 @@ table {
 }
 
 td {
-  padding: 5rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 tbody td:nth-child(1) {
@@ -99,4 +99,13 @@ body {
   .controls {
     height: 130px;
   }
+}
+
+/* Cross and Circle */
+.X {
+  background-color: red;
+}
+
+.O {
+  background-color: blue;
 }
