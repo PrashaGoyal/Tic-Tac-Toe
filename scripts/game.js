@@ -1,7 +1,7 @@
-var board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+var board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //game board
 var aiPlayer = "X";
 var huPlayer = "O";
-var endGame = false;
+var endGame = false; //to signify the end of game
 
 //returns a list of the empty spots on the board
 function emptySpots(board) {
@@ -9,6 +9,19 @@ function emptySpots(board) {
   for (var i = 0; i < 9; i++) if (board[i] === i) empty.push(i);
 
   return empty;
+}
+
+//function to shuffle the received list
+function shuffle(list) {
+  for (var i = list.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+
+    var temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+
+  return list;
 }
 
 //checks if the board is in a winning state
@@ -36,9 +49,20 @@ function isWinning(board, player) {
   else return false;
 }
 
+//function to check if the board is full
+//is checked after isWinning() so as to check for tie state
+function isFull(board) {
+  var availSpots = emptySpots(board);
+
+  if (availSpots.length === 0) return true;
+  else return false;
+}
+
 //the main minimax function
 function minimax(board, player) {
   var availSpots = emptySpots(board);
+
+  availSpots = shuffle(availSpots);
 
   //checking if the board is in a winning, losing or tie state and returning a value accordingly
   if (isWinning(board, aiPlayer)) return { score: 10 };
@@ -116,11 +140,8 @@ for (var i = 0; i < 9; i++) {
 
 //function to simulate AI's turn
 function aiTurn() {
-  //available spots for AI's turn
-  var availSpots = emptySpots(board);
-
-  //if there's no available spot it means the human did not win in its previous turn and hence it's a tie
-  if (availSpots.length === 0) {
+  //if there's no available spot and the human did not win in its previous turn and hence it's a tie
+  if (isFull(board)) {
     alert("Tie");
     endGame = true;
   }
@@ -136,7 +157,27 @@ function aiTurn() {
     alert("Computer wins");
     endGame = true;
   }
+  //check if the board reaches tie state after AI's turn
+  else if (isFull(board)) {
+    alert("Tie");
+    endGame = true;
+  }
 }
+
+document.querySelector(".btn-success").addEventListener("click", function () {
+  board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //revert to original board
+  endGame = false; //the game is on
+
+  //remove the crosses and circles
+  for (var i = 0; i < 9; i++) {
+    var cellClassList = document.querySelectorAll("td")[i].classList;
+    if (cellClassList.contains(aiPlayer)) cellClassList.remove(aiPlayer);
+    else cellClassList.remove(huPlayer);
+  }
+
+  //AI starts the new game
+  aiTurn();
+});
 
 //AI starts the game
 aiTurn();
