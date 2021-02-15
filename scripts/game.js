@@ -138,7 +138,10 @@ for (var i = 0; i < 9; i++) {
           endGame = true;
         }
         //else call for AI's turn
-        else aiTurn();
+        else
+          setTimeout(function () {
+            aiTurn();
+          }, 500);
       }
     });
   })(i); //calling the closure function
