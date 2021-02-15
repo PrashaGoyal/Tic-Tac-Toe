@@ -50,19 +50,19 @@
           <table class="board">
             <tbody>
               <tr>
-                <td id="cell-0"></td>
-                <td id="cell-1"></td>
-                <td id="cell-2"></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <td id="cell-3"></td>
-                <td id="cell-4"></td>
-                <td id="cell-5"></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
               <tr>
-                <td id="cell-6"></td>
-                <td id="cell-7"></td>
-                <td id="cell-8"></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tr>
             </tbody>
           </table>
@@ -70,6 +70,29 @@
 
         <div class="cols col-md-5 control-wrap">
           <div class="controls">
+            <div class="player-controls">
+              <p class="control-tag">Starting Player</p>
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-lg btn-outline-light">
+                  <input
+                    type="radio"
+                    name="player-options"
+                    id="human-player"
+                    value="human"
+                    checked
+                  />Human
+                </label>
+                <label class="btn btn-lg btn-outline-light">
+                  <input
+                    type="radio"
+                    name="player-options"
+                    id="ai-player"
+                    value="ai"
+                  />Computer
+                </label>
+              </div>
+            </div>
+
             <button class="btn btn-lg btn-success">New Game</button>
           </div>
 

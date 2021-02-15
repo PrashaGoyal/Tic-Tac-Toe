@@ -6,8 +6,8 @@ table {
 }
 
 td {
-  width: 10rem;
-  height: 10rem;
+  margin: 5px;
+  padding: 5rem;
 }
 
 tbody td:nth-child(1) {
@@ -29,10 +29,14 @@ tbody tr:nth-child(2) {
 /* Element Tags */
 body {
   font-family: "Nanum Pen Script";
-  font-size: 1rem;
+  font-size: 1.5rem;
   text-align: center;
   background-image: url("../images/doodle-bg.jpg");
   background-size: cover;
+}
+
+p {
+  color: #fff;
 }
 
 /* Containers */
@@ -79,11 +83,26 @@ body {
   height: 90%;
 }
 
+.player-controls {
+  margin: auto;
+  width: 40%;
+  position: relative;
+  top: 30%;
+}
+
+.control-tag {
+  margin: 0;
+  text-align: left;
+}
+
+.btn-group {
+  width: 100%;
+}
+
 .btn-success {
   width: 40%;
-  font-size: 1.5rem;
   position: relative;
-  top: 50%;
+  top: 40%;
 }
 
 .copyright {
@@ -102,10 +121,17 @@ body {
 }
 
 /* Cross and Circle */
+.X,
+.O {
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .X {
-  background-color: red;
+  background-image: url("../images/X.png");
 }
 
 .O {
-  background-color: blue;
+  background-image: url("../images/O.png");
 }

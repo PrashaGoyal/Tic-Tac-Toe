@@ -1,7 +1,7 @@
 var board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //game board
-var aiPlayer = "X";
-var huPlayer = "O";
 var endGame = false; //to signify the end of game
+var huPlayer = "X";
+var aiPlayer = "O";
 
 //returns a list of the empty spots on the board
 function emptySpots(board) {
@@ -127,12 +127,18 @@ for (var i = 0; i < 9; i++) {
         this.classList.add(huPlayer);
         board[x] = huPlayer;
 
-        //checks if the human wins;
-        //if yes, end the game, else, call for AI's turn
+        //checks if the human wins and if yes, end the game
         if (isWinning(board, huPlayer)) {
           alert("Human wins");
           endGame = true;
-        } else aiTurn();
+        }
+        //check if the board reaches tie state after human's turn
+        else if (isFull(board)) {
+          alert("Tie");
+          endGame = true;
+        }
+        //else call for AI's turn
+        else aiTurn();
       }
     });
   })(i); //calling the closure function
@@ -140,44 +146,49 @@ for (var i = 0; i < 9; i++) {
 
 //function to simulate AI's turn
 function aiTurn() {
-  //if there's no available spot and the human did not win in its previous turn and hence it's a tie
-  if (isFull(board)) {
-    alert("Tie");
-    endGame = true;
-  }
-  //if there is an available spot then AI makes its next move
-  else {
+  if (endGame === false) {
     move = minimax(board, aiPlayer);
     document.querySelectorAll("td")[move.index].classList.add(aiPlayer);
     board[move.index] = aiPlayer;
-  }
 
-  //check if AI wins and if yes, end the game
-  if (isWinning(board, aiPlayer)) {
-    alert("Computer wins");
-    endGame = true;
-  }
-  //check if the board reaches tie state after AI's turn
-  else if (isFull(board)) {
-    alert("Tie");
-    endGame = true;
+    //check if AI wins and if yes, end the game
+    if (isWinning(board, aiPlayer)) {
+      alert("Computer wins");
+      endGame = true;
+    }
+    //check if the board reaches tie state after AI's turn
+    else if (isFull(board)) {
+      alert("Tie");
+      endGame = true;
+    }
   }
 }
 
+//add click event listener to the New Game button
 document.querySelector(".btn-success").addEventListener("click", function () {
   board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //revert to original board
   endGame = false; //the game is on
 
   //remove the crosses and circles
-  for (var i = 0; i < 9; i++) {
-    var cellClassList = document.querySelectorAll("td")[i].classList;
-    if (cellClassList.contains(aiPlayer)) cellClassList.remove(aiPlayer);
-    else cellClassList.remove(huPlayer);
+  for (var i = 0; i < 9; i++)
+    document.querySelectorAll("td")[i].classList.remove(aiPlayer, huPlayer);
+
+  //check which player starts first
+  var radioList = document.querySelectorAll("input[name='player-options']");
+  var selectedPlayer;
+  for (radioBtn of radioList) {
+    if (radioBtn.checked) {
+      selectedPlayer = radioBtn.value;
+      break;
+    }
   }
 
-  //AI starts the new game
-  aiTurn();
-});
+  //if ai player is selected, start the game accordingly
+  //human player is by default
+  if (selectedPlayer == "ai") {
+    aiPlayer = "X";
+    huPlayer = "O";
 
-//AI starts the game
-aiTurn();
+    aiTurn();
+  }
+});
