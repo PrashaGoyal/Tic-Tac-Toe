@@ -129,13 +129,17 @@ for (var i = 0; i < 9; i++) {
 
         //checks if the human wins and if yes, end the game
         if (isWinning(board, huPlayer)) {
-          alert("Human wins");
           endGame = true;
+          setTimeout(function () {
+            displayWinner("Human Wins!");
+          }, 300);
         }
         //check if the board reaches tie state after human's turn
         else if (isFull(board)) {
-          alert("Tie");
           endGame = true;
+          setTimeout(function () {
+            displayWinner("Tie Game!");
+          }, 300);
         }
         //else call for AI's turn
         else
@@ -156,21 +160,32 @@ function aiTurn() {
 
     //check if AI wins and if yes, end the game
     if (isWinning(board, aiPlayer)) {
-      alert("Computer wins");
       endGame = true;
+      setTimeout(function () {
+        displayWinner("Computer Wins!");
+      }, 300);
     }
     //check if the board reaches tie state after AI's turn
     else if (isFull(board)) {
-      alert("Tie");
       endGame = true;
+      setTimeout(function () {
+        displayWinner("Tie Game!");
+      }, 300);
     }
   }
 }
 
-//add click event listener to the New Game button
+//function to display the winner
+function displayWinner(text) {
+  document.querySelector(".winner-msg").innerHTML = text;
+  document.querySelector(".winner").classList.add("visible");
+}
+
+//add functionality to the New Game button
 document.querySelector(".btn-success").addEventListener("click", function () {
   board = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //revert to original board
   endGame = false; //the game is on
+  document.querySelector(".winner").classList.remove("visible"); //remove winner message
 
   //remove the crosses and circles
   for (var i = 0; i < 9; i++)

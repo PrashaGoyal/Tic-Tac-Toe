@@ -135,3 +135,24 @@ p {
 .O {
   background-image: url("../images/O.png");
 }
+
+.winner {
+  background: rgb(187, 204, 204, 0.7);
+  width: 50%;
+  height: 20%;
+  position: absolute;
+  top: 40%;
+  left: 25%;
+  display: none;
+}
+
+.winner-msg {
+  color: #e70808;
+  font-size: 3.5rem;
+  padding: 5%;
+  margin: 0;
+}
+
+.visible {
+  display: block;
+}
